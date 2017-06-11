@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Color Toggle</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+	<h1 align="center" id="pagePlantHeader">Color Toggle</h1>
+
+	<p align="center">
+		<img src="images/pagePlantColor.jpg" id="pagePlantImg"> <br>
+		<input id="toggleColorButton" type=button value="Black and White"
+			onclick="toggleColor()">
+	</p>
+	<script>
+		var isColor = true;
+		function toggleColor() {
+			var pagePlantImg = document.getElementById("pagePlantImg");
+			var toggleColorButton = document
+					.getElementById("toggleColorButton");
+			if (isColor) {
+				pagePlantImg.src = "images/pagePlantBW.jpg";
+				toggleColorButton.value = "Color";
+			isColor=false;
+			} else {
+				pagePlantImg.src = "images/pagePlantColor.jpg";
+				toggleColorButton.value = "Black and White";
+			isColor=true;
+			}
+		}
+	</script>
+</body>
+</html>

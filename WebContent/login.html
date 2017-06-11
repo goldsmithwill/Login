@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+	<h1 id="loginHeader" align="center">Login</h1>
+	<form id="loginForm" align="center">
+		Username: <input id="usernameInput" type=text></input><br>
+		Password: <input id="passwordInput" type=password></input><br> <input
+			id="loginButton" type=button value="Log In"
+			onclick="authorizeLogin(this.form)"></input> <input id="cancelButton"
+			type=reset value="Cancel"></input>
+	</form>
+	<script>
+		var accounts = new Array();
+
+		function loadAccounts() {
+			alert("hi");
+			var request = new XMLHttpRequest();
+			request.open("GET", "accounts", false);
+			request.send(null);
+			var rawAccountsString = request.responseText;
+			alert("Raw " + rawAccounts);
+			var rawAccountsArray = rawAccountsString.split('\n');
+			alert(accounts[0] + " " + accounts[1] + " " + accounts[2] + " "
+					+ accounts[3]);
+			/* alert(rawAccountsArray[0] + " " + rawAccountsArray[1] + " "
+					+ rawAccountsArray[2] + " " + rawAccountsArray[3]); */
+			/* 	for (i = 0; i < rawAccountsArray.length; i++) {
+					var tempAccount = new Array;
+					tempAccount = rawAccountsArray[i].split(',');
+					accounts[i][0] = tempAccount[0];
+					accounts[i][1] = tempAccount[1];
+				}
+				alert(accounts[0][0] + " " + accounts[0][1] + " " + accounts[1][0]
+						+ " " + accounts[1][1]); */
+		}
+
+		function authorizeLogin(form) {
+			alert("first hi");
+			loadAccounts();
+		/* 	if (form.usernameInput.value == "willGoldsmith" */
+					&& form.passwordInput.value == "password") {
+				location.replace("colorToggle.html");
+			/* } else { */
+				alert("The username or password is incorrect.");
+			/* } */
+
+		}
+	</script>
+</body>
+</html>
